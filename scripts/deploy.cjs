@@ -6,12 +6,33 @@ const path = require('path');
 const artifactPath = path.resolve(__dirname, '../src/config/contractArtifact.json');
 const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8'));
 
+// Load .env if present
+const envPath = path.resolve(__dirname, '../.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf8');
+  for (const line of envContent.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const match = trimmed.match(/^([^=]+)=(.*)$/);
+    if (match) {
+      const key = match[1].trim();
+      let val = match[2].trim();
+      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+        val = val.slice(1, -1);
+      }
+      if (!process.env[key]) {
+        process.env[key] = val;
+      }
+    }
+  }
+}
+
 const botChain = {
-  id: 968,
-  name: 'BOT Chain Testnet',
+  id: 677,
+  name: 'BOT Chain Mainnet',
   nativeCurrency: { name: 'BOT', symbol: 'BOT', decimals: 18 },
-  rpcUrls: { default: { http: ['https://rpc.bohr.life'] } },
-  blockExplorers: { default: { name: 'BohrScan', url: 'https://scan.bohr.life' } },
+  rpcUrls: { default: { http: ['https://rpc.botchain.ai'] } },
+  blockExplorers: { default: { name: 'BOTScan', url: 'https://scan.botchain.ai' } },
 };
 
 async function main() {
@@ -25,17 +46,18 @@ async function main() {
   }
 
   const account = privateKeyToAccount(privateKey.startsWith('0x') ? privateKey : `0x${privateKey}`);
-  console.log(`Deploying ProofStampRegistry from address: ${account.address}`);
+  console.log(`Deploying ProofStampRegistry to BOT Chain Mainnet (Chain ID: 677)...`);
+  console.log(`Deployer address: ${account.address}`);
 
   const publicClient = createPublicClient({
     chain: botChain,
-    transport: http('https://rpc.bohr.life'),
+    transport: http('https://rpc.botchain.ai'),
   });
 
   const walletClient = createWalletClient({
     account,
     chain: botChain,
-    transport: http('https://rpc.bohr.life'),
+    transport: http('https://rpc.botchain.ai'),
   });
 
   const balance = await publicClient.getBalance({ address: account.address });
@@ -48,7 +70,7 @@ async function main() {
   });
 
   console.log(`Transaction sent! Tx Hash: ${hash}`);
-  console.log(`Explorer: https://scan.bohr.life/tx/${hash}`);
+  console.log(`Explorer: https://scan.botchain.ai/tx/${hash}`);
   console.log('Waiting for receipt...');
 
   const receipt = await publicClient.waitForTransactionReceipt({ hash });

@@ -95,7 +95,7 @@ export const VaultTab: FC<VaultTabProps> = ({
             My Document <span className="gradient-text">Vault</span>
           </h1>
           <p style={{ fontSize: '0.96rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
-            Manage and verify your documents registered on BOT Chain Testnet
+            Manage and verify your documents registered on BOT Chain Mainnet
           </p>
         </div>
 
@@ -262,7 +262,7 @@ export const VaultTab: FC<VaultTabProps> = ({
                       target="_blank"
                       rel="noreferrer"
                       className="btn-secondary"
-                      title="View Transaction on BohrScan"
+                      title="View Transaction on BOTScan"
                       style={{ padding: '8px 12px', textDecoration: 'none' }}
                     >
                       <ExternalLink size={14} />

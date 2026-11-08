@@ -419,7 +419,7 @@ export const StampTab: FC<StampTabProps> = ({ onProofCreated, onViewReceipt }) =
                   </h4>
                 </div>
                 <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginBottom: '14px' }}>
-                  Record #{lastCreatedProof.id} has been permanently written to BOT Chain Testnet.
+                  Record #{lastCreatedProof.id} has been permanently written to BOT Chain Mainnet.
                 </p>
 
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
@@ -438,7 +438,7 @@ export const StampTab: FC<StampTabProps> = ({ onProofCreated, onViewReceipt }) =
                       className="btn-secondary"
                       style={{ padding: '9px 16px', fontSize: '0.88rem', textDecoration: 'none' }}
                     >
-                      View on BohrScan <ExternalLink size={14} />
+                      View on BOTScan <ExternalLink size={14} />
                     </a>
                   )}
                 </div>

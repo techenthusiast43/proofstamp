@@ -10,12 +10,12 @@ export const projectId =
   import.meta.env.VITE_WALLETCONNECT_PROJECT_ID ||
   'c4f79cc821944d9680842e34466bfbd'; // Fallback demo ID
 
-// 2. Define BOT Chain as a CaipNetwork for AppKit & Wagmi
+// 2. Define BOT Chain Mainnet as a CaipNetwork for AppKit & Wagmi
 export const botChainNetwork = defineChain({
-  id: 968,
-  caipNetworkId: 'eip155:968',
+  id: 677,
+  caipNetworkId: 'eip155:677',
   chainNamespace: 'eip155',
-  name: 'BOT Chain Testnet',
+  name: 'BOT Chain Mainnet',
   nativeCurrency: {
     name: 'BOT',
     symbol: 'BOT',
@@ -23,13 +23,13 @@ export const botChainNetwork = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://rpc.bohr.life'],
+      http: ['https://rpc.botchain.ai'],
     },
   },
   blockExplorers: {
     default: {
-      name: 'BohrScan',
-      url: 'https://scan.bohr.life',
+      name: 'BOTScan',
+      url: 'https://scan.botchain.ai',
     },
   },
 });
@@ -56,8 +56,8 @@ export const modal = createAppKit({
   metadata: {
     name: 'ProofStamp',
     description: 'Decentralized Document Verification on BOT Chain',
-    url: typeof window !== 'undefined' ? window.location.origin : 'https://proofstamp.bohr.life',
-    icons: ['https://scan.bohr.life/favicon.ico'],
+    url: typeof window !== 'undefined' ? window.location.origin : 'https://proofstamp.botchain.ai',
+    icons: ['https://scan.botchain.ai/favicon.ico'],
   },
   themeMode: 'dark',
   themeVariables: {

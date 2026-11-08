@@ -1,6 +1,8 @@
 # ProofStamp — Decentralized Document Verification on BOT Chain
 
-**ProofStamp** is a decentralized document verification application (dApp) built for **BOT Chain Testnet** (Chain ID: `968`). It establishes an immutable, publicly verifiable record proving that a specific version of a document existed at a certain point in time.
+**ProofStamp** is a decentralized document verification application (dApp) built for **BOT Chain Mainnet** (Chain ID: `677`). It establishes an immutable, publicly verifiable record proving that a specific version of a document existed at a certain point in time.
+
+> 📖 **Read the Official Whitepaper**: [WHITEPAPER.md](WHITEPAPER.md) for full cryptographic proofs, smart contract architecture, security threat models, and roadmap.
 
 ---
 
@@ -14,16 +16,17 @@ ProofStamp never uploads your documents to the blockchain or any server.
 
 ---
 
-## 🌐 BOT Chain Network Parameters
+## 🌐 BOT Chain Mainnet Parameters
 
 | Parameter | Value |
 | :--- | :--- |
-| **Network Name** | BOT Chain Testnet |
-| **Chain ID** | `968` (`0x3c8`) |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
+| **Network Name** | BOT Chain Mainnet |
+| **Chain ID** | `677` (`0x2a5`) |
+| **RPC Endpoint** | `https://rpc.botchain.ai` |
 | **Native Currency** | `BOT` (18 Decimals) |
-| **Block Explorer** | [https://scan.bohr.life](https://scan.bohr.life) |
+| **Block Explorer** | [https://scan.botchain.ai](https://scan.botchain.ai) |
 | **Total Supply** | 150 Million BOT |
+| **Deployed Contract** | [`0x67b3a74bc54158c6b45a60e58bfe195f44d197e3`](https://scan.botchain.ai/address/0x67b3a74bc54158c6b45a60e58bfe195f44d197e3) |
 
 ---
 

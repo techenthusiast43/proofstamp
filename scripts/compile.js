@@ -46,10 +46,10 @@ const artifact = {
   bytecode: '0x' + contract.evm.bytecode.object,
   compilerVersion: '0.8.20',
   network: {
-    name: 'BOT Chain Testnet',
-    chainId: 968,
-    rpcUrl: 'https://rpc.bohr.life',
-    explorer: 'https://scan.bohr.life',
+    name: 'BOT Chain Mainnet',
+    chainId: 677,
+    rpcUrl: 'https://rpc.botchain.ai',
+    explorer: 'https://scan.botchain.ai',
   },
 };
 

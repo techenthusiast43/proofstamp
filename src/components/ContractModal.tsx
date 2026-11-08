@@ -8,10 +8,12 @@ import {
   Loader2,
   X,
   PlusCircle,
+  ExternalLink,
 } from 'lucide-react';
 import { BOT_CHAIN_INFO } from '../config/contract';
 import { getActiveContractAddress, setActiveContractAddress } from '../services/proofStore';
 import artifact from '../config/contractArtifact.json';
+import { BotChainLogo } from './BotChainLogo';
 
 interface ContractModalProps {
   onClose: () => void;
@@ -49,15 +51,15 @@ export const ContractModal: FC<ContractModalProps> = ({ onClose, onAddressUpdate
           method: 'wallet_addEthereumChain',
           params: [
             {
-              chainId: '0x3c8', // 968 in hex
-              chainName: 'BOT Chain Testnet',
+              chainId: '0x2a5', // 677 in hex
+              chainName: 'BOT Chain Mainnet',
               nativeCurrency: {
                 name: 'BOT',
                 symbol: 'BOT',
                 decimals: 18,
               },
-              rpcUrls: ['https://rpc.bohr.life'],
-              blockExplorerUrls: ['https://scan.bohr.life'],
+              rpcUrls: ['https://rpc.botchain.ai'],
+              blockExplorerUrls: ['https://scan.botchain.ai'],
             },
           ],
         });
@@ -150,8 +152,11 @@ export const ContractModal: FC<ContractModalProps> = ({ onClose, onAddressUpdate
           marginBottom: '20px',
           fontSize: '0.84rem',
         }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-            <span style={{ fontWeight: 700, color: '#fff' }}>BOT Chain Testnet</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <BotChainLogo size={20} />
+              <span style={{ fontWeight: 700, color: '#fff' }}>BOT Chain Mainnet</span>
+            </div>
             <button
               onClick={addBotChainToWallet}
               className="btn-outline-cyan"
@@ -162,16 +167,22 @@ export const ContractModal: FC<ContractModalProps> = ({ onClose, onAddressUpdate
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', color: 'var(--text-muted)' }}>
-            <div>Chain ID: <span style={{ color: '#fff' }}>{BOT_CHAIN_INFO.chainId} (0x3c8)</span></div>
+            <div>Chain ID: <span style={{ color: '#fff' }}>{BOT_CHAIN_INFO.chainId} (0x2a5)</span></div>
             <div>Token: <span style={{ color: '#fff' }}>{BOT_CHAIN_INFO.symbol}</span></div>
             <div style={{ gridColumn: 'span 2' }}>
-              RPC: <span className="mono" style={{ color: '#00f2fe' }}>{BOT_CHAIN_INFO.rpcUrl}</span>
+              Website:{' '}
+              <a href="https://botchain.ai" target="_blank" rel="noreferrer" style={{ color: '#00f2fe', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <BotChainLogo size={13} /> https://botchain.ai <ExternalLink size={11} />
+              </a>
             </div>
             <div style={{ gridColumn: 'span 2' }}>
               Explorer:{' '}
-              <a href={BOT_CHAIN_INFO.explorerUrl} target="_blank" rel="noreferrer" style={{ color: '#4facfe' }}>
-                {BOT_CHAIN_INFO.explorerUrl}
+              <a href={BOT_CHAIN_INFO.explorerUrl} target="_blank" rel="noreferrer" style={{ color: '#4facfe', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <BotChainLogo size={13} /> {BOT_CHAIN_INFO.explorerUrl} <ExternalLink size={11} />
               </a>
+            </div>
+            <div style={{ gridColumn: 'span 2' }}>
+              RPC: <span className="mono" style={{ color: '#94a3b8' }}>{BOT_CHAIN_INFO.rpcUrl}</span>
             </div>
           </div>
         </div>
@@ -252,7 +263,7 @@ export const ContractModal: FC<ContractModalProps> = ({ onClose, onAddressUpdate
               fontSize: '0.8rem',
               marginBottom: '12px',
             }}>
-              Deploy Tx Sent: <a href={`${BOT_CHAIN_INFO.explorerUrl}/tx/${deployedTxHash}`} target="_blank" rel="noreferrer" style={{ color: '#00f2fe' }}>View on BohrScan</a>. Waiting for block confirmation...
+              Deploy Tx Sent: <a href={`${BOT_CHAIN_INFO.explorerUrl}/tx/${deployedTxHash}`} target="_blank" rel="noreferrer" style={{ color: '#00f2fe' }}>View on BOTScan</a>. Waiting for block confirmation...
             </div>
           )}
 

@@ -302,6 +302,21 @@ body {
   animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.hover-cyan {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.hover-cyan:hover {
+  color: var(--accent-cyan) !important;
+}
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 242, 254, 0.45) !important;
+}
+
 /* Print Certificate View */
 @media print {
   body {

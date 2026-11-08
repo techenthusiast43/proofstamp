@@ -1,9 +1,9 @@
 import { defineChain } from 'viem';
 
-// BOT Chain Testnet Definition
+// BOT Chain Mainnet Definition
 export const botChain = defineChain({
-  id: 968,
-  name: 'BOT Chain Testnet',
+  id: 677,
+  name: 'BOT Chain Mainnet',
   nativeCurrency: {
     decimals: 18,
     name: 'BOT',
@@ -11,32 +11,33 @@ export const botChain = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://rpc.bohr.life'],
+      http: ['https://rpc.botchain.ai'],
     },
   },
   blockExplorers: {
     default: {
-      name: 'BohrScan',
-      url: 'https://scan.bohr.life',
+      name: 'BOTScan',
+      url: 'https://scan.botchain.ai',
     },
   },
-  testnet: true,
+  testnet: false,
 });
 
 export const BOT_CHAIN_INFO = {
-  chainId: 968,
-  name: 'BOT Chain Testnet',
-  rpcUrl: 'https://rpc.bohr.life',
-  explorerUrl: 'https://scan.bohr.life',
+  chainId: 677,
+  name: 'BOT Chain Mainnet',
+  websiteUrl: 'https://botchain.ai',
+  rpcUrl: 'https://rpc.botchain.ai',
+  explorerUrl: 'https://scan.botchain.ai',
   symbol: 'BOT',
   decimals: 18,
   totalSupply: '150 Million',
 };
 
-// Default contract address (can be set via VITE_CONTRACT_ADDRESS or in-app settings)
+// Default contract address (deployed on BOT Chain Mainnet, Chain ID: 677)
 export const DEFAULT_CONTRACT_ADDRESS: `0x${string}` =
   (import.meta.env.VITE_CONTRACT_ADDRESS as `0x${string}`) ||
-  '0x72A3Fa41d63806C623C85E5Ff04499645607b1aD'; // Configurable / sample fallback address
+  '0x67b3a74bc54158c6b45a60e58bfe195f44d197e3';
 
 export const PROOF_STAMP_ABI = [
   {

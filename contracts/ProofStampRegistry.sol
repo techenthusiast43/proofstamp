@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title ProofStampRegistry
- * @dev Document verification registry on BOT Chain (Chain ID: 968).
+ * @dev Document verification registry on BOT Chain Mainnet (Chain ID: 677).
  * Stores cryptographic document fingerprints (SHA-256) on-chain to provide
  * public, immutable proof-of-existence at a verified point in time.
  * Supports multiple registrations of the same document hash to allow multiple

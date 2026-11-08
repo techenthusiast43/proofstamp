@@ -431,7 +431,7 @@ export const VerifyTab: FC<VerifyTabProps> = ({ initialHash, onViewReceipt, onGo
                     className="btn-secondary"
                     style={{ padding: '10px 18px', fontSize: '0.9rem', textDecoration: 'none' }}
                   >
-                    BohrScan Explorer <ExternalLink size={14} />
+                    BOTScan Explorer <ExternalLink size={14} />
                   </a>
                 </div>
               </div>

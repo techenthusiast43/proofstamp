@@ -5,6 +5,7 @@ import { ShieldCheck, ExternalLink, Settings, Wallet, Layers, ChevronDown } from
 import { BOT_CHAIN_INFO } from '../config/contract';
 import { formatAddress } from '../utils/crypto';
 import { getActiveContractAddress } from '../services/proofStore';
+import { BotChainLogo } from './BotChainLogo';
 
 interface HeaderProps {
   onOpenContractModal: () => void;
@@ -168,7 +169,7 @@ export const Header: FC<HeaderProps> = ({
             href={BOT_CHAIN_INFO.explorerUrl}
             target="_blank"
             rel="noreferrer"
-            title="Open BohrScan Explorer"
+            title="Open BOTScan Explorer"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -186,6 +187,7 @@ export const Header: FC<HeaderProps> = ({
             className="hover-bright"
           >
             <span className="pulse-dot" style={{ background: isCorrectChain ? '#10b981' : '#f59e0b' }} />
+            <BotChainLogo size={15} />
             <span>BOT Chain {BOT_CHAIN_INFO.chainId}</span>
             <ExternalLink size={12} color="var(--text-muted)" />
           </a>

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Background gradients -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e1e38" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#07090e" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#040508" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Shield Primary Gradient -->
+    <linearGradient id="shieldGrad" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="50%" stop-color="#2498fc" />
+      <stop offset="100%" stop-color="#6b2cf5" />
+    </linearGradient>
+
+    <!-- Shield Rim Neon Highlight -->
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8f9ff" />
+      <stop offset="40%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <!-- Shield Glass Fill -->
+    <linearGradient id="shieldInnerGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#0c2340" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#07111e" stop-opacity="0.92" />
+    </linearGradient>
+
+    <!-- Stamp Checkmark Gradient -->
+    <linearGradient id="checkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#bbf7fe" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="outerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="intenseGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur1" />
+      <feGaussianBlur stdDeviation="32" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="stampShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#00f2fe" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian Canvas Background -->
+  <rect width="800" height="800" fill="#05070b" />
+  <circle cx="400" cy="400" r="390" fill="url(#bgGlow)" />
+
+  <!-- Cryptographic Circular Orbit Ring (Safe within circle crop) -->
+  <circle cx="400" cy="400" r="310" stroke="rgba(0, 242, 254, 0.12)" stroke-width="2" stroke-dasharray="14 10" fill="none" />
+  <circle cx="400" cy="400" r="275" stroke="rgba(59, 130, 246, 0.18)" stroke-width="1.5" stroke-dasharray="6 8" fill="none" />
+
+  <!-- Cryptographic Node Accents -->
+  <circle cx="400" cy="90" r="4.5" fill="#00f2fe" filter="url(#intenseGlow)" />
+  <circle cx="400" cy="710" r="4.5" fill="#6b2cf5" filter="url(#intenseGlow)" />
+  <circle cx="90" cy="400" r="4.5" fill="#00f2fe" filter="url(#intenseGlow)" />
+  <circle cx="710" cy="400" r="4.5" fill="#3b82f6" filter="url(#intenseGlow)" />
+
+  <circle cx="180" cy="180" r="3.5" fill="#2498fc" opacity="0.6" />
+  <circle cx="620" cy="180" r="3.5" fill="#2498fc" opacity="0.6" />
+  <circle cx="180" cy="620" r="3.5" fill="#6b2cf5" opacity="0.6" />
+  <circle cx="620" cy="620" r="3.5" fill="#6b2cf5" opacity="0.6" />
+
+  <!-- Ambient Shield Backlight Pulse -->
+  <path d="M400 170 L585 240 V390 C585 515 400 620 400 620 C400 620 215 515 215 390 V240 Z"
+        fill="#00f2fe" opacity="0.16" filter="url(#outerGlow)" />
+
+  <!-- Outer Shield Border / Bevel Base -->
+  <path d="M400 178 L580 246 V392 C580 512 400 614 400 614 C400 614 220 512 220 392 V246 Z"
+        fill="url(#shieldInnerGrad)" stroke="url(#shieldGrad)" stroke-width="8" stroke-linejoin="round"
+        filter="url(#stampShadow)" />
+
+  <!-- Inner High-Tech Shield Facet (Left Half Shadow, Right Half Luster) -->
+  <path d="M400 196 L238 258 V388 C238 495 400 588 400 588 Z"
+        fill="rgba(0, 242, 254, 0.04)" />
+  <path d="M400 196 L562 258 V388 C562 495 400 588 400 588 Z"
+        fill="rgba(255, 255, 255, 0.05)" />
+
+  <!-- Shield Top Rim Specular Highlight Curve -->
+  <path d="M236 256 L400 194 L564 256"
+        fill="none" stroke="url(#rimGrad)" stroke-width="4" stroke-linecap="round" opacity="0.85" />
+
+  <!-- Central Proof Stamp / Digital Seal Ring -->
+  <circle cx="400" cy="405" r="118"
+          stroke="url(#shieldGrad)" stroke-width="5" stroke-dasharray="16 8"
+          fill="rgba(7, 17, 30, 0.65)" filter="url(#intenseGlow)" />
+  
+  <circle cx="400" cy="405" r="94"
+          stroke="rgba(0, 242, 254, 0.3)" stroke-width="2" fill="none" />
+
+  <!-- Cryptographic Hash Verification Checkmark (Bold & Crisp at Small Sizes) -->
+  <path d="M332 408 L380 456 L476 348"
+        stroke="url(#checkGrad)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"
+        fill="none" filter="url(#intenseGlow)" />
+
+  <!-- Digital Stamp Rays / Hash Notches at cardinal points -->
+  <line x1="400" y1="262" x2="400" y2="274" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" opacity="0.8" />
+  <line x1="400" y1="536" x2="400" y2="548" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" opacity="0.8" />
+  <line x1="257" y1="405" x2="269" y2="405" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" opacity="0.8" />
+  <line x1="531" y1="405" x2="543" y2="405" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" opacity="0.8" />
+</svg>
+

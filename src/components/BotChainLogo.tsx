@@ -1,0 +1,32 @@
+import type { FC } from 'react';
+
+interface BotChainLogoProps {
+  size?: number;
+  className?: string;
+  color?: string;
+}
+
+/**
+ * Official BOT Chain On-Chain Logo
+ * Source: scan.botchain.ai
+ */
+export const BotChainLogo: FC<BotChainLogoProps> = ({ size = 20, className = '', color = '#10A37F' }) => {
+  const width = Math.max(12, Math.round((size * 22) / 32));
+  return (
+    <svg
+      width={width}
+      height={size}
+      viewBox="0 0 22 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      style={{ display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}
+      aria-label="Official BOT Chain Logo"
+    >
+      <path
+        fill={color}
+        d="m8.23 3.263 12.496 7.105v5.19c-1.241.565-2.433 1.265-3.61 1.955-.214.126-.493-.026-.4.398l3.997 2.17.18 4.918-8.525 4.93-8.384-4.64v-5.052l12.53 7.275v-4.75l-8.286-4.749v-5.052l8.286 4.649v-4.345c0-.059.288-.228.015-.4L8.228 8.012v-4.75z"
+      />
+    </svg>
+  );
+};
